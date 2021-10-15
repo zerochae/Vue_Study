@@ -1,5 +1,5 @@
 <template>
-
+<div>
   <!-- <div class="black-bg" v-if="isOpen == true">
     <div class="white-bg">
       <h4>{{ oneRooms[info].title }}</h4>
@@ -38,7 +38,7 @@
     <h4>{{ products[0] }}</h4>
     <p>{{ price[0] }} 만원</p>
   </div>
-
+ 
   <div>
     <h4>{{ products[1] }}</h4>
     <p>{{ price[1] }} 만원</p>
@@ -56,10 +56,11 @@
   <Card :Room="oneRooms[4]"/>
   <Card :Room="oneRooms[5]"/> -->
 
-  <Card @openModal="isOpen = true; info= $event" :Room="oneRooms[i]" v-for="(Room,i) in oneRooms" :key="Room"/>
-
+  <!-- <Card @openModal="isOpen = true; info= $event" :Room="oneRooms[i]" v-for="(Room,i) in oneRooms" :key="Room"/> -->
+  <Card/>
+</div>
   <!-- 반복문으로  -->
-
+   
 </template>
 
 <script>
