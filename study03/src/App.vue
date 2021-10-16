@@ -10,7 +10,7 @@
       <img src="./assets/logo.png" class="logo" />
     </div>
 
-    <Container :postData="postData" />
+    <Container :postData="postData" :step='step' />
 
     <button @click="more">더보기</button>
 
@@ -20,6 +20,7 @@
         <label for="file" class="input-plus">+</label>
       </ul>
     </div>
+
   </div>
 </template>
 
@@ -33,6 +34,9 @@ export default {
   data() {
     return {
       postData: postData,
+      count: 0,
+      step : 0,
+
     };
   },
   components: {
@@ -40,11 +44,25 @@ export default {
   },
   methods: {
     more() {
-      axios
-        .get("https://codingapple1.github.io/vue/more0.json")
-        .then((result) => {
-           this.postData.push(result.data);
-        });
+      if (this.count == 0) {
+        axios
+          .get("https://codingapple1.github.io/vue/more0.json")
+          .then((result) => {
+            this.postData.push(result.data);
+            this.count += 1;
+          });
+      } else {
+        axios
+          .get("https://codingapple1.github.io/vue/more1.json")
+          .then((result) => {
+            this.postData.push(result.data);
+          });
+      }
+
+      // axios
+      // .post("URL", { name : "kim"})
+      // .then((result) =>{})
+      // .catch((err)=> {})
     },
   },
 };
