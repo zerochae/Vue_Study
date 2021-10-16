@@ -1,9 +1,8 @@
 <template>
   <div>
-    <div :v-for="(list,i) in blog" :key="list">
-      <!-- <h5 @click="$router.push('/detail/')">{{ blog[i].title }}</h5> -->
-      <!-- <p>{{ blog[i].date }}</p> -->
-      {{blog}}
+    <div v-for="(list,index) in blog" :key="list">
+      <h5 @click="$router.push('/detail/'+index)">{{ blog[index].title }}</h5>
+       <p>{{ blog[index].date }}</p>
     </div>
   </div>
 </template>
@@ -12,10 +11,11 @@
 export default {
   name: "list",
   data() {
-    return {};
+    return {
+    };
   },
   props: {
-    blog: Array,
+    blog : Array,
   },
 };
 </script>

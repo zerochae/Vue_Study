@@ -63,12 +63,12 @@
 
 
     <router-link to="/home">홈 페이지</router-link> <br />
-    <router-link to="/list" :blog="blog">리스트 페이지</router-link> <br />
-    <router-link :blog="blog" to="/detail">상세 페이지</router-link>
-    <div class="mt-5">
+    <router-link to="/list">리스트 페이지</router-link> <br />
+    <!-- <router-link :blog="blog" to="/detail">상세 페이지</router-link> -->
+     <div class="mt-5">
       <router-view :blog="blog"></router-view>
-    </div>
-    <!-- <List :blog="blog"/> -->
+    </div> 
+    <List :blog="blog"/> 
   </div>
 </template>
 

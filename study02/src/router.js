@@ -7,6 +7,10 @@ import Comment from "./components/Comment.vue";
 
 const routes = [
   {
+    path: "/",
+    component: Home,
+  },
+  {
     path: "/list",
     component: List,
   },
