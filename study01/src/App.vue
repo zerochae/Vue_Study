@@ -56,8 +56,7 @@
   <Card :Room="oneRooms[4]"/>
   <Card :Room="oneRooms[5]"/> -->
 
-  <!-- <Card @openModal="isOpen = true; info= $event" :Room="oneRooms[i]" v-for="(Room,i) in oneRooms" :key="Room"/> -->
-  <Card/>
+  <Card @openModal="isOpen = true; info= $event" :Room="oneRooms[i]" :v-for="(Room,i) in oneRooms" :key="Room"/>
 </div>
   <!-- 반복문으로  -->
    

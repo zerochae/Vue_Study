@@ -61,14 +61,13 @@
       </div>
     </nav>
 
-    <div class="container mt-4">
-      <h5>제로채 블로그임!!!</h5>
-      <p>돈 벌고 싶다</p>
-    </div>
-    <router-link to="/home">홈 페이지</router-link> <br>
-    <router-link to="/list">리스트 페이지</router-link>
-    <router-view :blog="blog"></router-view>
 
+    <router-link to="/home">홈 페이지</router-link> <br />
+    <router-link to="/list" :blog="blog">리스트 페이지</router-link> <br />
+    <router-link :blog="blog" to="/detail">상세 페이지</router-link>
+    <div class="mt-5">
+      <router-view :blog="blog"></router-view>
+    </div>
     <!-- <List :blog="blog"/> -->
   </div>
 </template>
@@ -81,7 +80,7 @@ export default {
   name: "App",
   data() {
     return {
-      blog: blog,
+      blog : blog,
     };
   },
   components: {
