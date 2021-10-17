@@ -49,7 +49,13 @@ export default {
       step: 0,
       uploadImageUrl: "",
       content: "",
+      filterName : "aa",
     };
+  },
+  mounted() {
+    this.emitter.on("callFilterName", (data) => {
+      this.filterName = data;
+    });
   },
   components: {
     Container: Container,
@@ -95,7 +101,7 @@ export default {
         date: "Oct 17",
         liked: false,
         content: this.content,
-        filter: "perpetua",
+        filter: this.filterName,
       };
       postData.unshift(posting);
       this.step = 0;

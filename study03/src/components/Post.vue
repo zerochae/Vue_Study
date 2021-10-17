@@ -1,10 +1,17 @@
 <template>
   <div class="post">
     <div class="post-header">
-      <div class="profile"><img class="profile" :src="postData.userImage" /></div>
-      <span class="profile-name">{{postData.name}}</span>
+      <div class="profile">
+        <img class="profile" :src="postData.userImage" />
+      </div>
+      <span class="profile-name">{{ postData.name }}</span>
     </div>
-    <div class="post-body" :style="{backgroundImage: `url(${postData.postImage})`}">
+    <div
+      :class="postData.filter"
+      class="post-body"
+      :style="{ backgroundImage: `url(${postData.postImage})` }"
+    >
+      {{ postData.filter }}
       <!-- <img class="post-body" :src="postData.postImage" /> -->
     </div>
     <div class="post-content">

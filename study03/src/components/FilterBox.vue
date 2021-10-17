@@ -1,9 +1,13 @@
 <template>
-    <div
-      class="filter-item"
-      :style="{ backgroundImage: `url(${uploadImageUrl})`}"
-      style="color:black"
-    >{{filter}}</div>
+  <div
+    @click="fire"
+    class="filter-item"
+    :style="{ backgroundImage: `url(${uploadImageUrl})` }"
+    style="color: black"
+  >
+    <!-- {{ filter }} -->
+    <slot name="filterName"></slot>
+  </div>
 </template>
 
 <script>
@@ -14,7 +18,13 @@ export default {
   },
   props: {
     uploadImageUrl: String,
-    filter : Array
+    filter: Array,
+  },
+  methods: {
+    fire() {
+      console.log(this.filter);
+      this.emitter.emit("callFilterName", this.filter);
+    },
   },
 };
 </script>
