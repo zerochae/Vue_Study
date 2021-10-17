@@ -48,7 +48,7 @@ export default {
       count: 0,
       step: 0,
       uploadImageUrl: "",
-      content : "",
+      content: "",
     };
   },
   components: {
@@ -100,9 +100,9 @@ export default {
       postData.unshift(posting);
       this.step = 0;
     },
-    callContent(content){
-      this.content = content
-    }
+    callContent(content) {
+      this.content = content;
+    },
   },
 };
 </script>
