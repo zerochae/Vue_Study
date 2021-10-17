@@ -11,6 +11,8 @@
       <img src="./assets/logo.png" class="logo" />
     </div>
 
+    <h4>안녕 {{$store.state.name}}</h4>
+
     <Container
       :postData="postData"
       :step="step"
