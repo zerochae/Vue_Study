@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="step == 0">
-      <Post :postData="list" v-for="list in postData" :key="list" />
+      <Post :postData="list" v-for="list in postData" :key="list"/>
     </div>
 
     <div v-if="step == 1">
@@ -71,6 +71,7 @@ export default {
       this.filterName = data;
     });
   },
+
 };
 </script>
 

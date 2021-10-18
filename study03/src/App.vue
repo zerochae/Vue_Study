@@ -11,7 +11,12 @@
       <img src="./assets/logo.png" class="logo" />
     </div>
 
-    <h4>안녕 {{$store.state.name}}</h4>
+    <h4>안녕 {{ $store.state.name }}</h4>
+    <p>{{ name }}</p>
+    <p>{{ 내이름 }}</p>
+
+    <p>{{ $store.state.more }}</p>
+    <button @click="$store.dispatch('getData')">더보기버튼</button>
 
     <Container
       :postData="postData"
@@ -41,6 +46,7 @@
 import Container from "./components/Container.vue";
 import postData from "./assets/postData.js";
 import axios from "axios";
+import {mapMutations, mapState} from 'vuex';
 
 export default {
   name: "App",
@@ -51,7 +57,8 @@ export default {
       step: 0,
       uploadImageUrl: "",
       content: "",
-      filterName : "aa",
+      filterName: "aa",
+      nowCount: 0,
     };
   },
   mounted() {
@@ -63,6 +70,12 @@ export default {
     Container: Container,
   },
   methods: {
+    ...mapMutations([
+      'setMore','like'
+    ]),
+    now() {
+      return new Date();
+    },
     more() {
       if (this.count == 0) {
         axios
@@ -111,6 +124,13 @@ export default {
     callContent(content) {
       this.content = content;
     },
+  },
+  computed: {
+    name() {
+      return this.$store.state.name;
+    },
+    ...mapState(['name','age','likes',]),
+    ...mapState({ 내이름 : 'name'}),
   },
 };
 </script>

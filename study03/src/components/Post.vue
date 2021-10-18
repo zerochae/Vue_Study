@@ -7,6 +7,7 @@
       <span class="profile-name">{{ postData.name }}</span>
     </div>
     <div
+      @click="$store.commit('like')"
       :class="postData.filter"
       class="post-body"
       :style="{ backgroundImage: `url(${postData.postImage})` }"
@@ -15,7 +16,7 @@
       <!-- <img class="post-body" :src="postData.postImage" /> -->
     </div>
     <div class="post-content">
-      <p>{{ postData.likes }}</p>
+      <p>{{ $store.state.likes }}</p>
       <p>
         <strong>{{ postData.name }}</strong> {{ postData.content }}
       </p>
@@ -33,6 +34,7 @@ export default {
   components: {},
   props: {
     postData: Array,
+    liked: Boolean,
   },
 };
 </script>
