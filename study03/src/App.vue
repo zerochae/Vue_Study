@@ -10,13 +10,13 @@
       </ul>
       <img src="./assets/logo.png" class="logo" />
     </div>
-
+<!-- 
     <h4>안녕 {{ $store.state.name }}</h4>
     <p>{{ name }}</p>
-    <p>{{ 내이름 }}</p>
+    <p>{{ 내이름 }}</p> -->
 
-    <p>{{ $store.state.more }}</p>
-    <button @click="$store.dispatch('getData')">더보기버튼</button>
+    <!-- <p>{{ $store.state.more }}</p> -->
+    <!-- <button @click="$store.dispatch('getData')">더보기버튼</button> -->
 
     <Container
       :postData="postData"
@@ -54,7 +54,7 @@ export default {
     return {
       postData: postData,
       count: 0,
-      step: 0,
+      step: 3,
       uploadImageUrl: "",
       content: "",
       filterName: "aa",

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="step == 0">
-      <Post :postData="list" v-for="list in postData" :key="list"/>
+      <Post :postData="list" v-for="list in postData" :key="list" />
     </div>
 
     <div v-if="step == 1">
@@ -35,6 +35,9 @@
         <textarea class="write-box" @input="contentData"></textarea>
       </div>
     </div>
+    <div v-if="step==3">
+      <Mypage/>
+    </div>
   </div>
 </template>
 
@@ -42,6 +45,7 @@
 import Post from "./Post.vue";
 import FilterBox from "./FilterBox.vue";
 import filterData from "./../assets/filterData.js";
+import Mypage from "./Mypage.vue";
 
 export default {
   name: "Container",
@@ -55,6 +59,7 @@ export default {
   components: {
     Post: Post,
     FilterBox: FilterBox,
+    Mypage : Mypage, 
   },
   props: {
     postData: Array,
@@ -71,7 +76,6 @@ export default {
       this.filterName = data;
     });
   },
-
 };
 </script>
 
