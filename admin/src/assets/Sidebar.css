@@ -1,0 +1,41 @@
+.sidebar{
+    width: 150px;
+    height: 100vh;
+    background: cornflowerblue;
+    position: fixed;
+    z-index: 5;
+    color : white;
+    transform: translateX(-100px);
+    translate: all 1s;
+}
+
+.sidebar span{
+    margin-left: 15px;
+}
+
+.sidebar i {
+    transform: translateX(100px);
+}
+
+.sidebar div{
+    margin : 12px 0px 0px 15px;
+    translate: all 1s;
+}
+
+.sidebar:hover{
+    transform: translateX(0px);
+    transition: all 1s;
+}
+.sidebar:hover:after{
+    transform: translateX(-100px);
+    transition: all 1s;
+}
+
+.sidebar:hover i{
+    transform: translateX(0px);
+}
+
+.sidebar i{
+    transition: all 1s;
+    transform: translateX(100px);
+}
