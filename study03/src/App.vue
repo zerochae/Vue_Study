@@ -11,6 +11,7 @@
       <img src="./assets/logo.png" class="logo" />
     </div>
 <!-- 
+  
     <h4>안녕 {{ $store.state.name }}</h4>
     <p>{{ name }}</p>
     <p>{{ 내이름 }}</p> -->
