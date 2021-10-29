@@ -69,23 +69,34 @@
       <router-view :blog="blog"></router-view>
     </div> 
     <List :blog="blog"/> 
+  <button @click="song"> song </button>
   </div>
 </template>
 
 <script>
 // import List from "./components/List.vue";
 import blog from "./assets/blog.js";
+import axios from "axios";
 
 export default {
   name: "App",
   data() {
     return {
       blog : blog,
+      songData : ""
     };
   },
   components: {
     // List : List,
   },
+  methods : {
+    song(){
+      axios.get('localhost:8011/zerochae').then((result) => {
+        console.log(result)
+        this.songData = result
+      });
+    }
+  }
 };
 </script>
 

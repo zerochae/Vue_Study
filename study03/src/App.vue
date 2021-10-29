@@ -10,7 +10,7 @@
       </ul>
       <img src="./assets/logo.png" class="logo" />
     </div>
-<!-- 
+    <!-- 
   
     <h4>안녕 {{ $store.state.name }}</h4>
     <p>{{ name }}</p>
@@ -47,7 +47,7 @@
 import Container from "./components/Container.vue";
 import postData from "./assets/postData.js";
 import axios from "axios";
-import {mapMutations, mapState} from 'vuex';
+import { mapMutations, mapState } from "vuex";
 
 export default {
   name: "App",
@@ -71,9 +71,7 @@ export default {
     Container: Container,
   },
   methods: {
-    ...mapMutations([
-      'setMore','like'
-    ]),
+    ...mapMutations(["setMore", "like"]),
     now() {
       return new Date();
     },
@@ -85,6 +83,11 @@ export default {
             this.postData.push(result.data);
             this.count += 1;
           });
+        // axios
+        // .get('http://localhost:8011/zerochae')
+        // .then( (result) => {
+        //   console.log(result)
+        // });
       } else {
         axios
           .get("https://codingapple1.github.io/vue/more1.json")
@@ -130,8 +133,8 @@ export default {
     name() {
       return this.$store.state.name;
     },
-    ...mapState(['name','age','likes',]),
-    ...mapState({ 내이름 : 'name'}),
+    ...mapState(["name", "age", "likes"]),
+    ...mapState({ 내이름: "name" }),
   },
 };
 </script>
