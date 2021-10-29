@@ -1,15 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Zen+Kurenaido&display=swap');
 
 html, body {
-  font-family: 'Zen Kurenaido', sans-serif;
+  font-family: 'Roboto Mono', monospace;
 }
 
 #app {
-  font-family: 'Zen Kurenaido', sans-serif;
+  font-family: 'Roboto Mono', monospace;
 }
 
 * {
-  margin: auto;
+  margin: 5px;
+  padding: 5px;
 }
 
 table{
@@ -18,9 +19,18 @@ table{
 
 h1,h2,h3,h4,p,span{
   transform: rotate(0.04deg);
+  font-weight: 500;
 }
 
 span{
   font-size: 22px;
+}
+
+.clear-flex{
+  clear: both;
+}
+
+.main{
+  width: 800px;
 }
 

@@ -1,9 +1,18 @@
 <template>
   <div class="container-body">
     <div class="container text-center">
-      <div><button class="playBtn" @click="song">🎵</button></div>
-      <Audio :songData="songData" />
-      <Content :songData="songData"/>
+      <div class="audio-display row">
+        <div class="audio-player col-5">
+          <div class="audio-img">
+            <img :src="`${songData.img}`" alt="🤵">
+          </div>
+          <Audio :songData="songData" />
+          <div><button class="playBtn" @click="song"> <i class="fas fa-play"></i>🎶</button></div>
+        </div>
+        <div class="audio-content col-5">
+          <Content :songData="songData" />
+        </div>
+      </div>
     </div>
   </div>
 </template>

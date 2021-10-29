@@ -1,7 +1,7 @@
 <template>
   <div>
     <audio id="audio" controls>
-      <source :src="`https://${songData.file}`" type="audio/mp3" />
+      <source :src="`${songData.file}`" type="audio/mp3" />
     </audio>
   </div>
 </template>

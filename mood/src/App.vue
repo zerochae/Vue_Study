@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div class="main container">
     <Nav />
     <Container/>
+    <Post/>
     <Footer />
   </div>
 </template>
@@ -10,6 +11,7 @@
 import Nav from "./components/Nav.vue";
 import Container from "./components/Container.vue";
 import Footer from "./components/Footer.vue";
+import Post from "./components/Post.vue"
 
 export default {
   name: "App",
@@ -17,6 +19,7 @@ export default {
     Nav,
     Footer,
     Container,
+    Post,
   },
   data() {},
   methods: {},
@@ -30,4 +33,5 @@ export default {
 @import "./static/css/Footer.css";
 @import "./static/css/Content.css";
 @import "./static/css/Container.css";
+@import "./static/css/Post.css";
 </style>

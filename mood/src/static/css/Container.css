@@ -3,3 +3,19 @@
     height: 500px;
     background-color: darkorange;
 }
+.audio-display{
+    display : flex;
+}
+
+.audio-player{
+    float: left;
+}
+
+.audio-content{
+    float: right;
+}
+
+.audio-img img{
+    width: 200px;
+    height: 267.77px;
+}

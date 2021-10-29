@@ -2,7 +2,7 @@
   <div class="nav-body">
 
       <div class="nav-head">
-          <h1> Mood </h1>
+          <h1> Classic Mood</h1>
       </div>
 
   </div>
