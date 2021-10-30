@@ -5,8 +5,27 @@
     right: 0px;
 }
 
+.audio input[aria-label="미디어 컨트롤 더보기"]{
+  display: none;
+}
+
+audio::-webkit-media-controls-panel{
+  background-color : white;
+
+}
+
+
+.audio input{
+ display : none
+}
+
+.playBtn{
+  border: none;
+  background-color: white;
+}
+/* 
 .playBtn {
-  background: #1aab8a;
+  background: #000000;
   color: #fff;
   border: none;
   position: relative;
@@ -27,7 +46,7 @@
 
 .playBtn:hover {
   background: #fff;
-  color: #1aab8a;
+  color: #000000;
 }
 
 .playBtn:before,
@@ -38,7 +57,7 @@
   right: 0;
   height: 2px;
   width: 0;
-  background: #1aab8a;
+  background: #000000;
   transition: 400ms ease all;
 }
 
@@ -52,4 +71,4 @@
 .playBtn:hover:after {
   width: 100%;
   transition: 800ms ease all;
-}
+} */

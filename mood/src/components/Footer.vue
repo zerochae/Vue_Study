@@ -3,8 +3,8 @@
     <div class="copy">
       <p>
         Copyright &copy; <span>zerochae</span> All rights reserved
-        <a href="https://www.instagram.com/zerochae/"> <i class="fab fa-instagram fs-5"> instagram </i> </a>
-        <a href="https://github.com/zerochae"> <i class="fab fa-github fs-5"> github </i> </a>
+        <span onclick="javascript:location.href='https://www.instagram.com/zerochae/';"> <i class="fab fa-instagram fs-5"></i> </span>
+        <span onclick="javascript:location.href='https://github.com/zerochae';"> <i class="fab fa-github fs-5"></i> </span>
       </p>
     </div>
   </div>

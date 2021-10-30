@@ -3,6 +3,7 @@
     <Nav />
     <Container/>
     <Post/>
+    <div style="clear:both;"></div>
     <Footer />
   </div>
 </template>
@@ -34,4 +35,5 @@ export default {
 @import "./static/css/Content.css";
 @import "./static/css/Container.css";
 @import "./static/css/Post.css";
+@import './static/css/Info.css'
 </style>

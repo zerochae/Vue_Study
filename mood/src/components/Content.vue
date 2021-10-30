@@ -1,7 +1,7 @@
 <template>
   <div class="content-body">
-    <button class="songInfoBtn" @click="showInfo()">Song Info</button>
-    <div class="content-songInfo" v-if="info == true">
+    <div class="content-songInfo">
+      <h3> Song Infomation </h3>
       <table class="content-table container text-center">
         <tr>
           <th>composer</th>
@@ -46,17 +46,16 @@ export default {
   },
   data(){
       return{
-          info : false,
       }
   },
   methods :{
-      showInfo(){
-          if(this.info == false){
-              this.info = true;
-          } else {
-              this.info = false;
-          }
-      }
+      // showInfo(){
+      //     if(this.info == false){
+      //         this.info = true;
+      //     } else {
+      //         this.info = false;
+      //     }
+      // }
   }
 };
 </script>
