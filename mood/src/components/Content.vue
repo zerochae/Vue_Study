@@ -1,8 +1,8 @@
 <template>
   <div class="content-body">
     <div class="content-songInfo">
-      <h3> Song Infomation </h3>
-      <table class="content-table container text-center">
+      <h3> Work Infomation </h3>
+      <table class="content-table container text-center my-5">
         <tr>
           <th>composer</th>
           <td>
@@ -56,7 +56,7 @@ export default {
       //         this.info = false;
       //     }
       // }
-  }
+  },
 };
 </script>
 

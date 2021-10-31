@@ -15,7 +15,6 @@
 
 <script>
 import axios from "axios";
-
 export default {
   props: {
     composer: Object,
@@ -30,8 +29,7 @@ export default {
       axios
         .get(`http://localhost:8011/works/${this.composer.composer}`)
         .then((result) => {
-          this.workList = result.data;
-          console.log(result.data);
+          this.emitter.emit("works", result.data);
         });
     },
   },

@@ -1,10 +1,13 @@
 <template>
-  <div class="main container">
-    <Nav />
-    <Container/>
-    <Post/>
-    <div style="clear:both;"></div>
-    <Footer />
+  <div class="modal-container">
+    <Info v-if="openWorkList" :workList="workList" @closeWorkList = "openWorkList=false"/>
+    <div class="main container">
+      <Nav />
+      <Container/>
+      <Post />
+      <div style="clear: both"></div>
+      <Footer />
+    </div>
   </div>
 </template>
 
@@ -12,7 +15,8 @@
 import Nav from "./components/Nav.vue";
 import Container from "./components/Container.vue";
 import Footer from "./components/Footer.vue";
-import Post from "./components/Post.vue"
+import Post from "./components/Post.vue";
+import Info from "./components/Info.vue";
 
 export default {
   name: "App",
@@ -21,9 +25,21 @@ export default {
     Footer,
     Container,
     Post,
+    Info,
   },
-  data() {},
+  data() {
+    return {
+      openWorkList: false,
+    };
+  },
   methods: {},
+  mounted() {
+    this.emitter.on("works", (result) => {
+      this.openWorkList = true;
+      this.workList = result;
+      console.log(result)
+    });
+  },
 };
 </script>
 
@@ -35,5 +51,5 @@ export default {
 @import "./static/css/Content.css";
 @import "./static/css/Container.css";
 @import "./static/css/Post.css";
-@import './static/css/Info.css'
+@import "./static/css/Info.css";
 </style>
