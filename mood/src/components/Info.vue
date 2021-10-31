@@ -1,11 +1,12 @@
 <template>
   <div class="black-bg">
-    <div class="white-bg">
+    <div class="white-bg container">
       <div class="Info-body row">
-        <div class="audio-img col-5">
+        <div class="col-1"></div>
+        <div class="audio-img col-3">
           <img :src="`${workList[0].img}`" alt="" />
         </div>
-        <div class="info-workList col-5">
+        <div class="info-workList col-6">
           <ul @click="sendWorkData">
             <li v-for="work in workList" :key="work" @click="this.newWork=work">
               {{work.title}}
