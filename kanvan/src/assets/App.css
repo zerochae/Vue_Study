@@ -1,0 +1,18 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+}
+
+p,span,h1,h2,h3,h4{
+    transform: rotate(0.04deg);
+}
+
+
+
+button{
+    width: 100px;
+} */
