@@ -39,3 +39,15 @@
 
 .kanvanInput{
 }
+
+.list-item{
+    margin: auto;
+    text-align: center;
+    background-color: #eee;
+    width: 80%;
+    border-radius: 5px;
+}
+
+.dragOnMove{
+    transform: rotate(5deg);
+}
