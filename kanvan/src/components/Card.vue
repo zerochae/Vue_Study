@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>{{ card.user_name }} {{ card.memo }}</p>
+        <p> {{$index}} {{item.content}} </p>
     </div>
 </template>
 
@@ -11,7 +11,8 @@ export default {
         };
     },
     props: {
-        card : Object,
+        item : Object,
+        index : Number,
     }
 };
 </script>
