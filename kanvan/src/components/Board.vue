@@ -62,6 +62,7 @@
           @drop="(e) => onCardDrop(column.id, e)"
         >
           <!-- Items -->
+          <!-- ssh commit test-->
           <KanbanItem
             v-for="item in column.children"
             :key="item.id"
