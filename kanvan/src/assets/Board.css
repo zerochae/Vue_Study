@@ -60,12 +60,98 @@
 }
  */
 
- .kanvanContainer{
-    display: flex;
-    overflow-x: auto;
-    gap: 8;
-    padding: 8;
-    border-collapse: 0;
-    padding:5px;
-    margin: 10px;
- }
+.kanvanContainer {
+  display: flex;
+  overflow-x: auto;
+  gap: 8;
+  padding: 8;
+  border-collapse: 0;
+  padding: 5px;
+  margin: 10px;
+  min-width: 300px;
+  overflow-y: hidden;
+}
+
+.card-container {
+  cursor: move;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.card-space {
+  padding: 8px;
+  position: relative;
+}
+
+.card {
+  padding: 4px;
+  width: 100%;
+  height: 100%;
+  display: inline;
+  position: relative;
+}
+.card-in-menu {
+  cursor: pointer;
+  position: absolute;
+  background-color: white;
+  border-radius: 20px;
+  text-align: right;
+  right: 0;
+  top: 70px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-in-menu p:hover{
+}
+
+.showMenu-enter-from {
+  opacity: 0;
+}
+.showMenu-enter-active {
+  transition: all 1s;
+}
+.showMenu-enter-to {
+  opacity: 1;
+}
+.icons {
+  width: 20px;
+  vertical-align: bottom;
+}
+
+.cardMenu {
+}
+.cardMenu-drop {
+  display: block;
+}
+.drop-placeholder {
+  border: 2px dotted rebeccapurple;
+  border-radius: 50px;
+}
+.kanvan-title {
+  height: 40px;
+  min-width: 300px;
+}
+.card-ghost-drag {
+  transform: rotate(4deg) scale(1.1);
+  background-color: rebeccapurple;
+  transition: all 0.1s ease-in;
+  border-radius: 50px;
+  z-index: 50;
+  color: white;
+}
+.card-ghost-drop {
+  transition: all 5s;
+  background-color: red;
+  z-index: 50;
+  transform: rotate(0.4deg) scale(0.9);
+}
+
+.spin {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
