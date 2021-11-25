@@ -18,7 +18,7 @@
       v-for="(column, index) in kanvan.columns"
       :key="index"
     >
-      <div class="h-full flex flex-col">
+      <div class="">
         <!-- header-->
         <div
           class="
@@ -42,7 +42,7 @@
             border-primary rounded-lg mx-4 my-2`-->
         <!-- drop : 
             ease-in z-50 transform-rotate-2 scale-90-->
-        <Draggable>
+        <Draggable class="kanvan-column">
           <Container
             class="flex-grow overflow-y-auto overflow-x-hidden"
             orientation="vertical"
@@ -51,17 +51,13 @@
               (e, payload) => e.groupName === 'col-items' && !payload.loading
             "
             :get-child-payload="getCardPayload(column.id)"
-            :dropClass="{
-              className : `card-ghost-drop`,
-              showOnTop : true,
-              animationDuration: `1000`,
-              }"
             :drop-placeholder="{
               className: `drop-placeholder`,
               animationDuration: '200',
               showOnTop: true,
             }"
-            :dragClass="`card-ghost-drag`"
+            :dragClass="`cardGhostDrag`"
+            :dropClass="`cardGhostDrop`"
             @drop="(e) => onCardDrop(column.id, e)"
           >
             <!-- Items -->
@@ -105,7 +101,7 @@ const kanvan = {
     orientation: "horizontal",
   },
   columns: generateItems(boardTitle_kor.length, (i) => ({
-    id: `column${i}`,
+    id: `${i}`,
     // type: "container",
     // name: generateWords( boardTitle_kor[i] ),
     name: boardTitle_kor[i],
@@ -134,8 +130,9 @@ export default {
     return {
       openInput: -1,
       input: "test",
-      nowOpen: [-1,-1],
+      nowOpen: [-1, -1],
       kanvan,
+      dropCheck:[],
       // boardTitle_en,
       boardTitle_kor,
       // listData: [
@@ -208,26 +205,26 @@ export default {
     };
   },
   mounted() {
-    console.log(kanvan);
-    console.log(this.kanvan);
-    console.log(boardTitle_kor);
 
     this.emitter.on("showCardMenus", (e) => {
-
       let i = e[0];
       let j = e[1];
       let k = this.nowOpen[0];
       let m = this.nowOpen[1];
-      if(k > -1){
+
+      // 같은 거 누를 때
+
+      // 다른거 누룰 때
+
+      if (k > -1 && !(i == k && j == m)) {
         this.kanvan.columns[k].cards[m].showCardInMenu = false;
-      }
-      this.kanvan.columns[i].cards[j].showCardInMenu = true;
+      } 
+      this.kanvan.columns[i].cards[j].showCardInMenu = !this.kanvan.columns[i].cards[j].showCardInMenu;
       this.nowOpen[0] = i;
       this.nowOpen[1] = j;
     });
   },
-  beforeUpdate() {
-  },
+  beforeUpdate() {},
   methods: {
     showInput(i) {
       this.input = "";
@@ -248,6 +245,9 @@ export default {
       this.kanvan = kanvan;
     },
     onCardDrop(columnId, dropResult) {
+
+      
+
       // check if element where ADDED or REMOVED in current column
       if (dropResult.removedIndex !== null || dropResult.addedIndex !== null) {
         const kanvan = Object.assign({}, this.kanvan);
@@ -278,7 +278,6 @@ export default {
       };
     },
     addCard(i) {
-      console.log(i);
       var id = this.kanvan.columns.length;
 
       this.kanvan.columns[i].cards.push({
@@ -296,10 +295,6 @@ export default {
 };
 </script>
 <style>
-/** NB: don't remove, 
-* When using orientation="horizontal" it auto sets "display: table"
-* In this case we need flex and not display table  
-*/
 .smooth-dnd-container.horizontal {
   display: flex !important;
 }

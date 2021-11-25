@@ -60,11 +60,15 @@
 }
  */
 
+ body{
+   background-color: #16161A;
+   color: white;
+ }
+
 .kanvanContainer {
   display: flex;
   overflow-x: auto;
   gap: 8;
-  padding: 8;
   border-collapse: 0;
   padding: 5px;
   margin: 10px;
@@ -79,6 +83,9 @@
 }
 
 .card-space {
+  background-color: #414556;
+  margin: 10px;
+  border-radius: 20px;
   padding: 8px;
   position: relative;
 }
@@ -124,24 +131,40 @@
   display: block;
 }
 .drop-placeholder {
-  border: 2px dotted rebeccapurple;
+  border: 2px dotted #FF8906;
   border-radius: 50px;
 }
 .kanvan-title {
   height: 40px;
-  min-width: 300px;
+  width: 270px;
+  margin: 15px;
+  background-color: #2C2F3B;
+  border-radius: 15px;
+  text-align: center;
 }
-.card-ghost-drag {
+
+.kanvan-title span{
+  vertical-align:-webkit-baseline-middle;
+}
+
+.kanvan-column{
+  background-color: #2C2F3B;
+  margin: 15px;
+  border-radius: 15px;
+  width: 270px;
+  overflow-y: auto;
+  height: 900px;
+}
+
+.cardGhostDrag {
   transform: rotate(4deg) scale(1.1);
-  background-color: rebeccapurple;
   transition: all 0.1s ease-in;
   border-radius: 50px;
   z-index: 50;
   color: white;
 }
-.card-ghost-drop {
+.cardGhostDrop {
   transition: all 5s;
-  background-color: red;
   z-index: 50;
   transform: rotate(0.4deg) scale(0.9);
 }
