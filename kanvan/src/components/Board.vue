@@ -63,10 +63,10 @@
             <!-- Items -->
             <!-- ssh commit test-->
             <KanbanItem
-              v-for="(item, j) in column.cards"
-              :key="j"
+              v-for="(item, cardIndex) in column.cards"
+              :key="item.id"
               :columnIndex="index"
-              :cardIndex="j"
+              :cardIndex="cardIndex"
               :item="item"
             />
             <input
@@ -223,8 +223,24 @@ export default {
       this.nowOpen[0] = i;
       this.nowOpen[1] = j;
     });
+
+    this.emitter.on('deleteCardItem', (e) => {
+
+      
+      let i = e[0];
+      let j = e[1];
+
+      console.log(this.kanvan)
+
+      // console.log(this.kanvan.columns[i])
+
+      this.kanvan.columns[i].splice(j, 1);
+
+
+    });
+
+
   },
-  beforeUpdate() {},
   methods: {
     showInput(i) {
       this.input = "";
@@ -246,15 +262,23 @@ export default {
     },
     onCardDrop(columnId, dropResult) {
 
-      
+      // if(this.dropCheck.length > 1){
+
+      //   if(this.dropCheck[0] < 2 && this.dropCheck[1] > 1){ // 0,1
+      //     return false;
+      //   } else if(this.dropCheck[0] > 1 && this.dropCheck[1] < 2){
+      //     return false;
+      //   }
+      // }
 
       // check if element where ADDED or REMOVED in current column
       if (dropResult.removedIndex !== null || dropResult.addedIndex !== null) {
+        this.dropCheck.push(columnId)
+        console.log(columnId)
         const kanvan = Object.assign({}, this.kanvan);
         const column = kanvan.columns.filter((p) => p.id === columnId)[0];
         const itemIndex = kanvan.columns.indexOf(column);
         const newColumn = Object.assign({}, column);
-
         // check if element was ADDED in current column
         if (dropResult.removedIndex == null && dropResult.addedIndex >= 0) {
           // your action / api call
@@ -264,7 +288,6 @@ export default {
             dropResult.payload.loading = false;
           }, Math.random() * 5000 + 1000);
         }
-
         newColumn.cards = applyDrag(newColumn.cards, dropResult);
         kanvan.columns.splice(itemIndex, 1, newColumn);
         this.kanvan = kanvan;
@@ -289,7 +312,7 @@ export default {
       this.input = "";
     },
     removeCard(i) {
-      console.log(i);
+      console.log(i)
     },
   },
 };

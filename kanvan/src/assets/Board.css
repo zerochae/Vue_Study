@@ -60,6 +60,28 @@
 }
  */
 
+.dragStart-enter{
+  rotate: (0deg);
+  
+}
+.dragStart-enter-active{
+  transform: all 2s ease-in;
+  background-color: coral;
+}
+.dragStart-enter-to{
+  rotate: (25deg);
+}
+.dragStart-leave{
+  rotate: (25deg);
+}
+.dragStart-leave-active{
+  transform: all 2s ease-in;
+  background-color: coral;
+}
+.dragStart-leave-to{
+  rotate: (0deg);
+}
+
  body{
    background-color: #16161A;
    color: white;
@@ -71,7 +93,7 @@
   gap: 8;
   border-collapse: 0;
   padding: 5px;
-  margin: 10px;
+  margin: 10px auto;
   min-width: 300px;
   overflow-y: hidden;
 }
@@ -101,6 +123,7 @@
   cursor: pointer;
   position: absolute;
   background-color: white;
+  color:black;
   border-radius: 20px;
   text-align: right;
   right: 0;
@@ -152,21 +175,20 @@
   margin: 15px;
   border-radius: 15px;
   width: 270px;
-  overflow-y: auto;
   height: 900px;
+  box-sizing: content-box;
+  overflow-y: scroll;
 }
 
 .cardGhostDrag {
-  transform: rotate(4deg) scale(1.1);
-  transition: all 0.1s ease-in;
+  transform: rotate(5deg) scale(1.1);
+  transition: all 0.2s ease-in;
   border-radius: 50px;
-  z-index: 50;
   color: white;
 }
 .cardGhostDrop {
-  transition: all 5s;
-  z-index: 50;
-  transform: rotate(0.4deg) scale(0.9);
+  transition: all 5s ease-in;
+  /* transform: rotate(-20deg) scale(0.9); */
 }
 
 .spin {
@@ -177,4 +199,25 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 5px;
+  /* border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial; */
+}
+
+::-webkit-scrollbar-thumb{
+  /* border-radius: 30px;
+  background-color: rgb(141, 133, 133);
+  box-shadow: 0px 3px 12px rgba(255, 255, 255, 0.227);
+  width: 0px;
+  height: 8px;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial; */
 }

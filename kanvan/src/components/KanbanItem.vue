@@ -50,8 +50,8 @@
         </div>
         <transition name="showMenu">
         <div class="card-in-menu" v-if="item.showCardInMenu==true" :id="`cardMenu${columnIndex}${cardIndex}`">
-          <p><PencilIcon class="icons" /> 수정 </p>
-          <p><TrashIcon class="icons" /> 삭제 </p>
+          <p><PencilIcon @click="updateCard(columnIndex,cardIndex)"  class="icons" /> 수정 </p>
+          <p @click="deleteCard(columnIndex,cardIndex)"><TrashIcon  class="icons" /> 삭제 </p>
         </div>
         </transition>
         <p>{{ item.content }}</p>
@@ -93,6 +93,14 @@ export default {
     showCardMenu(i,j){
       var indexArr = [i,j];
       this.emitter.emit('showCardMenus',indexArr)
+    },
+    deleteCard(i,j){
+      var indexArr = [i,j];
+      this.emitter.emit('deleteCardItem',indexArr)
+    },
+    updateCard(i,j){
+      var indexArr = [i,j];
+      this.emitter.emit('udpateCardItem',indexArr)
     }
   }
 };
